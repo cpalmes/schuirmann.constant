@@ -1,0 +1,26 @@
+Package: schuirmann.constant
+Version: 0.1.0
+Title: Asymptotic Properties of the TOST and the Schuirmann Constant
+Authors@R: c(person('Christian', 'Palmes', email = 'christian.palmes@gmx.de',
+  role = c('aut', 'cre')), person('Benedikt', 'Funke', email = 'b.funke@fh-aachen.de', 
+  role = 'aut'), person('Tobias', 'Bluhmki', email = 'tobias.bluhmki@uni-ulm.de',
+  role = 'ctb'), person('Erich', 'Bluhmki', email = 'erich.bluhmki@boehringer-ingelheim.com',
+  role = 'ctb'))
+Description: TOST power and sample size calculations are provided in the balanced,
+  unpaired setting, where the true mean-difference is assumed to follow a predefined
+  a-priori distribution, e.g. the uniform distribution. Every a-priori
+  distribution corresponds asymptotically to a classical point mean-difference, its
+  Schuirmann constant, which does not depend on the true standard deviation. Functions
+  for calculating different asymptotic properties of the TOST, such as the Schuirmann
+  constant of any a-priori distribution, are implemented as well.
+License: GPL (>= 2)  
+Imports: PowerTOST, Rdpack, stats
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+RdMacros: Rdpack
+Author: Christian Palmes [aut, cre] (<christian.palmes@gmx.de>), Benedikt Funke 
+  [aut] (<b.funke@fh-aachen.de>), Tobias Bluhmki [ctb] (<tobias.bluhmki@uni-ulm.de>),
+  Erich Bluhmki [ctb] (<erich.bluhmki@boehringer-ingelheim.com>)
+Maintainer: Christian Palmes <christian.palmes@gmx.de>
