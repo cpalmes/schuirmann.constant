@@ -21,15 +21,15 @@ check.input.parameter <- function(l.para) {
   #
   check.density <- function(density, eps = 10^(-6)) {
     if (class(density) != 'function') {
-      stop('The a-priori density has to be a function on [0, 1]!', call. = F)
+      stop('The a-priori density has to be a function on [0, 1]!')
     } else {
       density.min <- optimize(density, interval = c(0, 1), maximum = F)
       if (density.min$objective < 0) {
-        stop('The a-priori density has to be non-negative!', call. = F)
+        stop('The a-priori density has to be non-negative!')
       } else {
         density.int <- integrate(density, lower = 0, upper = 1)$value
         if (abs(density.int - 1) > eps) {
-          stop('The a-priori density needs to integrate to 1 over [0, 1]!', call. = F)
+          stop('The a-priori density needs to integrate to 1 over [0, 1]!')
         }
       }
     }
@@ -38,21 +38,21 @@ check.input.parameter <- function(l.para) {
   # Checks for 0 < alpha < 1
   check.alpha <- function(alpha) {
     if (alpha <= 0 || alpha >= 1) {
-      stop('alpha needs to be in the open interval ]0, 1[!', call. = F)
+      stop('alpha needs to be in the open interval ]0, 1[!')
     }
   }
   
   # Checks for nabla > 0
   check.nabla <- function(nabla) {
     if (nabla <= 0) {
-      stop('nabla > 0 is not fulfilled!', call. = F)
+      stop('nabla > 0 is not fulfilled!')
     }
   }
   
   # Checks for 0 < pwr < 1
   check.pwr <- function(pwr) {
     if (pwr <= 0 || pwr >= 1) {
-      stop('pwr needs to be in the open interval ]0, 1[!', call. = F)
+      stop('pwr needs to be in the open interval ]0, 1[!')
     } 
   }
   
@@ -61,7 +61,7 @@ check.input.parameter <- function(l.para) {
   # (ii) n >= 2
   check.n <- function(n) {
     if (abs(round(n) - n) != 0 || n <= 1) {
-      stop('n needs to be an integer >= 2!', call. = F)
+      stop('n needs to be an integer >= 2!')
     }
   }
   
@@ -69,11 +69,11 @@ check.input.parameter <- function(l.para) {
   # theta0 in ]theta1, theta2[
   check.theta <- function(theta1, theta2, theta0 = NA) {
     if (theta1 >= theta2) {
-      stop('theta1 < theta2 is not fulfilled!', call. = F)
+      stop('theta1 < theta2 is not fulfilled!')
     }
     if (!is.na(theta0)) {
       if (theta0 <= theta1 || theta0 >= theta2) {
-        stop('theta1 < theta0 < theta2 is not fulfilled!', call. = F)
+        stop('theta1 < theta0 < theta2 is not fulfilled!')
       }
     } 
   }
@@ -81,14 +81,14 @@ check.input.parameter <- function(l.para) {
   # Checks for sigma > 0
   check.sigma <- function(sigma) {
     if (sigma <= 0) {
-      stop('sigma > 0 is not fulfilled!', call. = F)
+      stop('sigma > 0 is not fulfilled!')
     }
   }
   
   # Checks for 0.5 <= r <= 1
   check.r <- function(r) {
     if (r < 0.5 || r > 1) {
-      stop('0.5 <= r <= 1 is not fulfilled!', call. = F)
+      stop('0.5 <= r <= 1 is not fulfilled!')
     }
   }
 

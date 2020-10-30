@@ -6,7 +6,7 @@
 # function uniroot2 generalizes this restriction by searching for a change of sign
 # in the following way:
 # (i) case (to.one = TRUE):
-# The change of sign is searched for the intervals [lower, 1 - upper/10^k]
+# The change of sign is searched for the intervals [lower, 1 - (1-upper)/10^k]
 # for k = 0, .., k.max
 # (ii) case (to.one = FALSE):
 # The change of sign is searched for the intervals [lower, upper * 10^k]
@@ -15,10 +15,10 @@
 # informative error message.
 #
 uniroot2 <- function(fct, lower, upper, to.one, k.max = 15) {
-  upper.modified <- ifelse(to.one, 1-upper, upper)
+  upper.modified <- upper
   k <- 1
   while(k <= k.max && fct(lower) * fct(upper.modified) > 0) {
-    upper.modified <- ifelse(to.one, 1 - upper/(10^k), upper*(10^k))
+    upper.modified <- ifelse(to.one, 1 - (1-upper)/(10^k), upper*(10^k))
     k <- k + 1
   }
   if (k > k.max) {

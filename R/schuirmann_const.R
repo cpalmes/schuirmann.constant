@@ -26,7 +26,7 @@ schuirmann.constant <- function(alpha, pwr, density) {
   check.input.parameter(as.list(match.call())[-1])
   nabla <- nabla.weighted(alpha, pwr, density)
   fct <- function(r) {nabla.point(alpha, pwr,r) - nabla}
-  S <- uniroot2(fct, lower = 0.5, upper = 10^(-4), to.one = T)$root
+  S <- uniroot2(fct, lower = 0.5, upper = 1-10^(-4), to.one = T)$root
   return(S)
 }
 
@@ -66,8 +66,6 @@ schuirmann.constant <- function(alpha, pwr, density) {
 #' 
 schuirmann.constant.uniform <- function(alpha, pwr, theta1 = 0, theta2 = 1) {
   check.input.parameter(as.list(match.call())[-1])
-  nabla <- nabla.weighted(alpha, pwr, apriori.density('U'))
-  fct <- function(r) {nabla.point(alpha, pwr,r) - nabla}
-  s <- uniroot2(fct, lower = 0.5, upper = 10^(-4), to.one = T)$root
+  s <- schuirmann.constant(alpha, pwr, apriori.density('U'))
   (s-1)*theta1 + s*theta2
 }
