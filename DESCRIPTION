@@ -1,5 +1,5 @@
 Package: schuirmann.constant
-Version: 0.1.0
+Version: 0.0.0.9000
 Title: Asymptotic Properties of the TOST and the Schuirmann Constant
 Authors@R: c(person('Christian', 'Palmes', email = 'christian.palmes@gmx.de',
   role = c('aut', 'cre')), person('Benedikt', 'Funke', email = 'b.funke@fh-aachen.de', 
