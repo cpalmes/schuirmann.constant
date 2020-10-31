@@ -5,6 +5,10 @@ Short description of the subfolders:
 contains the R scripts that were used to calculate and render all the figures in our paper (*).
 ./tables
 contains the R scripts that were used to calculate all tables in our paper (*).
+./tests
+contains automated testing functions for the schuirmann.constant package for a 
+first validation of our package
+
 
 All these scripts make extensive use of the schuirmann.constant R-package.
 
