@@ -134,17 +134,27 @@ power.weighted.nabla <- function(alpha, density, nabla, n) {
 #' 
 n.weighted <- function(alpha, theta1, theta2, density, sigma, pwr) {
   check.input.parameter(as.list(match.call())[-1])
-  n.low <- 1
+  
+  n.low <- 2
   n.high <- 64
   
-  repeat {
-    pwr.high <- power.weighted(alpha, theta1, theta2, density, sigma, n.high)
-    if (pwr.high > pwr) {
-      break
-    }
-    n.high <- 2*n.high
+  # Check whether two samples are enough. If not, then we have
+  # power(n.low) < pwr
+  if (power.weighted(alpha, theta1, theta2, density, sigma, n.low) >= pwr) {
+    return(n.low)
   }
   
+  # Find n.high, such that
+  # power(n.low) < pwr <= power(n.high)
+  pwr.high <- power.weighted(alpha, theta1, theta2, density, sigma, n.high)
+  while (pwr.high < pwr) {
+    n.low <- n.high
+    n.high <- 2*n.high
+    pwr.high <- power.weighted(alpha, theta1, theta2, density, sigma, n.high)
+  }
+  
+  # Repeat until n.high = n.low + 1 and
+  # power(n.heigh-1) < pwr <= power(n.heigh)
   while (n.high - n.low > 1) {
     n.inter <- floor((n.low + n.high)/2)
     pwr.inter <- power.weighted(alpha, theta1, theta2, density, sigma, n.inter)
