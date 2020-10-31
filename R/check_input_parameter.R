@@ -19,7 +19,7 @@ check.input.parameter <- function(l.para) {
   # (ii) rho(r) >= 0 on the interval [0, 1]
   # (iii) rho integrates to one on the interval [0, 1]
   #
-  check.density <- function(density, eps = 10^(-6)) {
+  check.density <- function(density, eps = 10^(-4)) {
     if (class(density) != 'function') {
       stop('The a-priori density has to be a function on [0, 1]!')
     } else {
