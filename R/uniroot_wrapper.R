@@ -22,8 +22,7 @@ uniroot2 <- function(fct, lower, upper, to.one, k.max = 15) {
     k <- k + 1
   }
   if (k > k.max) {
-    stop(paste0('Calculation not possible due to ill-conditioned numerics! \n Please choose meaningful',
-         ' parameters such as 0.001 <= alpha <= 0.200 and 0.800 <= pwr <= 0.999!'))
+    stop('Calculation not possible due to ill-conditioned numerics!') 
   } else {
     uniroot(f = fct, lower = lower, upper = upper.modified)
   }

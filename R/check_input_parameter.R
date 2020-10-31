@@ -35,10 +35,10 @@ check.input.parameter <- function(l.para) {
     }
   }
   
-  # Checks for 0 < alpha < 1
+  # Checks for 0 < alpha < 0.5
   check.alpha <- function(alpha) {
-    if (alpha <= 0 || alpha >= 1) {
-      stop('alpha needs to be in the open interval ]0, 1[!')
+    if (alpha <= 0 || alpha >= 0.5) {
+      stop('alpha needs to be in the open interval ]0, 0.5[!')
     }
   }
   
@@ -51,8 +51,8 @@ check.input.parameter <- function(l.para) {
   
   # Checks for 0 < pwr < 1
   check.pwr <- function(pwr) {
-    if (pwr <= 0 || pwr >= 1) {
-      stop('pwr needs to be in the open interval ]0, 1[!')
+    if (pwr <= 0.5 || pwr >= 1) {
+      stop('pwr needs to be in the open interval ]0.5, 1[!')
     } 
   }
   
